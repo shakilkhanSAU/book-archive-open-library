@@ -15,7 +15,7 @@ const loadData = () => {
     // fetching data from api
     const searchField = document.getElementById('search-field');
     searchText = searchField.value;
-    const url = `http://openlibrary.org/search.json?q=${searchText}`;
+    const url = `https://openlibrary.org/search.json?q=${searchText}`;
     searchField.value = '';
     fetch(url)
         .then(res => res.json())
@@ -31,10 +31,9 @@ const displayData = data => {
     }
     else {
         data.forEach(book => {
-            // console.log(book)
-            // console.log(book.title)
             if (book.author_name !== undefined) {
                 const authorName = book.author_name;
+                const publisher = book?.publisher;
                 const bookCover = book.cover_i;
                 const bookCoverUrl = `https://covers.openlibrary.org/b/id/${bookCover}-M.jpg`;
                 // hide spinner
@@ -42,24 +41,25 @@ const displayData = data => {
                 // hide error message
                 document.getElementById('error-message').style.display = 'none';
                 const singleBook = document.createElement('div');
+                singleBook.classList.add('col')
                 singleBook.innerHTML = `
-                <div class="col">
                     <div class="card">
-                        <img class="avatar card-img-top img-fluid" src="${bookCoverUrl}" alt="Not Found" onerror=this.src="./image/alternative.jpg">
+                        <img class="my-image card-img-top img-fluid " src="${bookCoverUrl}" alt="Not Found" onerror=this.src="./image/alternative.jpg">
                         <div class="card-body">
                             <h5 class="card-title">${book.title}</h5>
-                            <p class="card-text">Written by- <span class="fw-bold">${authorName[0]} </span></p>
+                            <p class="card-text">Author name- <span class="fw-bold">${authorName[0]} </span></p>
+                            <p class="card-text">Publisher- <span class="fw-bold">${publisher}</span></p>
+                            
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">first publish in ${book.first_publish_year}</small>
                         </div>
                     </div>
-                </div>
                 `;
                 bookContainer.appendChild(singleBook);
 
                 // search result counter
-                searchResult.innerText = `${data.length}`
+                searchResult.innerText = `${data.length}`;
             };
         });
     }
