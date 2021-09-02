@@ -17,15 +17,17 @@
     <section class="container">
         <!-- input and search button area  -->
         <div>
-            <h2 class="text-center text-success mt-4">Search Your Favorite Books</h2>
-            <div class="input-group w-50 mx-auto">
+            <h2 class="text-center text-success mt-4 mb-2">Search Your Favorite Books</h2>
+            <div class="input-group w-75 mx-auto">
                 <input id="search-field" type="text" class="form-control" placeholder="Search books you want"
                     aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button onclick="loadData()" class="btn btn-outline-secondary" type="button"
                     id="button-addon2">Search</button>
             </div>
+            <!-- searc result counter -->
             <div>
-                <p class="fw-lighter">Search result found: <span id="result">--</span></p>
+                <p class="fw-lighter">Total results about <span id="result">--</span>
+                </p>
                 <hr>
             </div>
         </div>
@@ -35,7 +37,7 @@
         </div>
 
         <!-- spinner here -->
-        <div id="spinner" class="card d-none">
+        <div id="spinner" class="card d-none mt-5">
             <div class="spinner-border mx-auto my-5" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
@@ -50,6 +52,10 @@
                     <a href="#" class="btn btn-primary">Try Again</a>
                 </div>
             </div>
+        </div>
+        <!-- background image section -->
+        <div id="background" class="container d-flex justify-center">
+            <img class="mx-auto mt-5 img-fluid" src="./image/background.jpg" alt="">
         </div>
     </section>
     <!-- js script link -->
