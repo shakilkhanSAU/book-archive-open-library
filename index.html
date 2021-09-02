@@ -15,21 +15,45 @@
     <section class="container">
         <!-- input and search button area  -->
         <div>
-            <div class="input-group mb-3 mt-4">
-                <input type="text" class="form-control" placeholder="Search book you want"
-                    aria-label="Search book you want" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+            <h2 class="text-center text-success mt-4">Search Your Favorite Books</h2>
+            <div class="input-group w-50 mx-auto">
+                <input id="search-field" type="text" class="form-control" placeholder="search books you want"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button onclick="loadData()" class="btn btn-outline-secondary" type="button"
+                    id="button-addon2">Search</button>
             </div>
             <div>
-                <p class="fw-lighter">search result found 343</p>
+                <p class="fw-lighter">Search result found: <span id="result">--</span></p>
+                <hr>
             </div>
         </div>
+
         <!-- result showing area  -->
         <div class="container">
+            <div id="book-area" class="row row-cols-1 row-cols-md-3 g-4">
+            </div>
+        </div>
 
+        <!-- spinner here -->
+        <div id="spinner" class="card d-none">
+            <div class="spinner-border mx-auto my-5" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <!-- unexpected input value -->
+        <div>
+            <div id="error-message" class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-danger">Ooops, no book name detected</h5>
+                    <p class="card-text">Please search with another name</p>
+                    <a href="#" class="btn btn-primary">Try Again</a>
+                </div>
+            </div>
         </div>
     </section>
-
+    <!-- js script link -->
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
