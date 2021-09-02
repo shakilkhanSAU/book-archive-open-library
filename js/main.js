@@ -52,7 +52,7 @@ const displayData = data => {
                             
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">first publish in ${book.first_publish_year}</small>
+                            <small class="text-muted">First publish in ${book.first_publish_year}</small>
                         </div>
                     </div>
                 `;
