@@ -1,5 +1,5 @@
 # Open Library
-### Online Librara for All
+### Online Library for All
 
 check the website for more [Open Library](https://open-library-website.netlify.app/)
 
